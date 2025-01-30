@@ -1,15 +1,21 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-    const legalButton = document.querySelector("#T_C_Privacy")
-    const projectA1Button = document.querySelector(".explore-btn")
+document.addEventListener("DOMContentLoaded", () => {
+  const legal = document.querySelectorAll("#T_C_Privacy");
+  const projectA1 = document.querySelectorAll(".tryProjectA1, .exploreProjectA1");
 
-    legalButton.addEventListener("click", (e)=>{
-        e.preventDefault()
-        const baseURL = import.meta.env.VITE_LEGAL_URL
-        window.location.href = baseURL;
-    })
-    
-    projectA1Button.addEventListener("click", ()=>{
-        const baseURL = import.meta.env.VITE_PROJECTA1_URL
-        window.location.href = baseURL;
-    })
-})
+  const legalURL = import.meta.env.VITE_LEGAL_URL;
+  const projectURL = import.meta.env.VITE_PROJECTA1_URL;
+
+  legal.forEach((legalLink) => {
+    legalLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.href = legalURL;
+    });
+  });
+
+  projectA1.forEach((projectLink) => {
+    projectLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.href = projectURL;
+    });
+  });
+});
